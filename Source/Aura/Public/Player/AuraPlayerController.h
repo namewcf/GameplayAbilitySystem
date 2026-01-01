@@ -6,7 +6,7 @@
 #include "GameFramework/PlayerController.h"
 #include "AuraPlayerController.generated.h"
 
-//ÏòÇ°ÉùÃ÷
+//å‘å‰å£°æ˜
 class UInputMappingContext;
 class UInputAction;
 struct FInputActionValue;
@@ -27,7 +27,8 @@ protected:
 	virtual void SetupInputComponent() override;
 
 private:
-	//TObjectPtr²»ĞèÒªÉùÃ÷ÀïÃæµÄÖ¸ÕëÀàĞÍ£¬Ö»ĞèÒªÏòÇ°ÉùÃ÷£¬±ÜÃâÍ·ÎÄ¼şÑ­»·ÒÀÀµ£¬½öĞè¸æËß±àÒëÆ÷¡¸T ÊÇÒ»¸öÀà¡¹
+	
+	//TObjectPträ¸éœ€è¦å£°æ˜é‡Œé¢çš„æŒ‡é’ˆç±»å‹ï¼Œåªéœ€è¦å‘å‰å£°æ˜ï¼Œé¿å…å¤´æ–‡ä»¶å¾ªç¯ä¾èµ–ï¼Œä»…éœ€å‘Šè¯‰ç¼–è¯‘å™¨ã€ŒT æ˜¯ä¸€ä¸ªç±»ã€
 	UPROPERTY(EditAnywhere, Category = "Input")
 	TObjectPtr<UInputMappingContext> AuraContext;
 
@@ -38,7 +39,7 @@ private:
 
 	void CursorTrace();
 
-	IEnemyInterface* LastActor;
-	IEnemyInterface* ThisActor;
+	TObjectPtr<IEnemyInterface> LastActor;
+	TObjectPtr<IEnemyInterface> ThisActor;
 	
 };

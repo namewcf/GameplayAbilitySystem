@@ -2,15 +2,17 @@
 
 
 #include "Character/AuraCharacter.h"
+#include "Player/AuraPlayerController.h"
 #include "GameFramework/CharacterMovementComponent.h"
+#include "UI/HUD/AuraHUD.h"
 
 AAuraCharacter::AAuraCharacter()
 {
 	GetCharacterMovement()->bOrientRotationToMovement = true;
 	GetCharacterMovement()->RotationRate = FRotator(0.f, 400.f, 0.f);
-	//ÔÚÆ½ÃæÉÏÔË¶¯
+	//åœ¨å¹³é¢ä¸Šè¿åŠ¨
 	GetCharacterMovement()->bConstrainToPlane = true;
-	//ÈÃ½ÇÉ«ÔÚÒÆ¶¯¿ªÊ¼Ê±¡¸Îü¸½µ½³õÊ¼Æ½Ãæ£¨Í¨³£ÊÇ XY Æ½Ãæ£¬¼´Ë®Æ½µØÃæ£©¡¹
+	//è®©è§’è‰²åœ¨ç§»åŠ¨å¼€å§‹æ—¶ã€Œå¸é™„åˆ°åˆå§‹å¹³é¢ï¼ˆé€šå¸¸æ˜¯ XY å¹³é¢ï¼Œå³æ°´å¹³åœ°é¢ï¼‰ã€
 	GetCharacterMovement()->bSnapToPlaneAtStart = true;
 	bUseControllerRotationPitch = false;
 	bUseControllerRotationRoll = false;
@@ -41,4 +43,13 @@ void AAuraCharacter::InitAbilityActorInfo()
 	AuraPlayerState->GetAbilitySystemComponent()->InitAbilityActorInfo(AuraPlayerState, this);
 	AbilitySystemComponent = AuraPlayerState->GetAbilitySystemComponent();
 	AttributeSet = AuraPlayerState->GetAttributeSet();
+	
+	
+	if (AAuraPlayerController* AuraPlayerController = Cast<AAuraPlayerController>(GetController()))
+	{
+		if (AAuraHUD* AuraHUD = Cast<AAuraHUD>(AuraPlayerController->GetHUD()))
+		{
+			AuraHUD->InitOverlay(AuraPlayerController, AuraPlayerState, AbilitySystemComponent, AttributeSet);
+		}
+	}
 }

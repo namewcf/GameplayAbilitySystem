@@ -79,23 +79,26 @@ void AAuraPlayerController::CursorTrace()
 
 void AAuraPlayerController::BeginPlay()
 {
-	//±£Ö¤ÁË¸¸ÀàµÄ³õÊ¼»¯Âß¼­£¨Èç×é¼ş¼¤»î¡¢Ä¬ÈÏ×´Ì¬ÉèÖÃ£©ÏÈÖ´ĞĞ
+
 	Super::BeginPlay();
-	//ÊÇ·ñÓĞĞ§£¬ÈôÎŞĞ§Ôò´¥·¢¶ÏÑÔ±ÀÀ£²¢Êä³ö´íÎóĞÅÏ¢
+
 	check(AuraContext);
 
 	UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(GetLocalPlayer());
-	check(Subsystem);
-	Subsystem->AddMappingContext(AuraContext, 0);
+	if(Subsystem)
+	{
+		Subsystem->AddMappingContext(AuraContext, 0);
+	}
+	
 
 	bShowMouseCursor = true;
-	//ÉèÖÃÄ¬ÈÏÊó±êÑùÊ½
+	//è®¾ç½®é¼ æ ‡æ ·å¼
 	DefaultMouseCursor = EMouseCursor::Default;
 
 	FInputModeGameAndUI InputModeData;
-	//Êó±êÍêÈ«²»Ëø¶¨£¬¿É×ÔÓÉÒÆ³öÓÎÏ·ÊÓ¿Ú£¬¹â±êÊ¼ÖÕ¿É¼û
+	//è®¾ç½®é¼ æ ‡é”å®šæ¨¡å¼
 	InputModeData.SetLockMouseToViewportBehavior(EMouseLockMode::DoNotLock);
-	//Êó±ê±»²¶»ñÊ±ÊÇ·ñÒş²Ø¹â±ê
+	
 	InputModeData.SetHideCursorDuringCapture(false);
 	SetInputMode(InputModeData);
 }
@@ -116,7 +119,7 @@ void AAuraPlayerController::Move(const FInputActionValue& InputActionValue)
 	const FRotator Rotation = GetControlRotation();
 	const FRotator YawRotation(0.f, Rotation.Yaw, 0.f);
 
-	//ÌáÈ¡¸ÃĞı×ª³¯ÏòµÄ¡¸X Öáµ¥Î»ÏòÁ¿¡¹²¢¸³Öµ
+	//åŸºäºçº¯ Yaw æ—‹è½¬ï¼ˆåèˆª / æ°´å¹³æ—‹è½¬ï¼‰è·å–ä¸–ç•Œç©ºé—´ä¸‹å‰å‘å•ä½å‘é‡
 	const FVector ForwardDirection = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::X);
 	const FVector RightDirection = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
 

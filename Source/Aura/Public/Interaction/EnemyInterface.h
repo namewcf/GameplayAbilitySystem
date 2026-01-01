@@ -22,7 +22,7 @@ class AURA_API IEnemyInterface
 
 	// Add interface functions to this class. This is the class that will be inherited to implement this interface.
 public:
-	//´¿Ğéº¯ÊıÓÃÓÚ¶¨Òå½Ó¿Ú¹æ·¶£º»ùÀàÖ»ÉùÃ÷ "Òª×öÊ²Ã´"£¬¾ßÌåÊµÏÖÓÉ×ÓÀà¾ö¶¨¡£
+	//å£°æ˜çº¯è™šå‡½æ•°çš„æ ¸å¿ƒå†™æ³•ï¼Œç”¨äºå®šä¹‰ã€ŒActor é«˜äº® / å–æ¶ˆé«˜äº®ã€çš„æŠ½è±¡æ¥å£ï¼Œå¼ºåˆ¶å­ç±»å®ç°å…·ä½“çš„é«˜äº®é€»è¾‘ã€‚
 	virtual void HighLightActor() = 0;
 	virtual void UnHighLightActor() = 0;
 };

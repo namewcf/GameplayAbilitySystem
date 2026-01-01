@@ -17,7 +17,7 @@ class AURA_API AAuraCharacter : public AAuraCharacterBase
 public:
 	AAuraCharacter();
 	virtual void PossessedBy(AController* NewController) override;
-	//是玩家状态（APlayerState）同步到客户端后的回调函数
+	//鐢ㄤ簬澶勭悊銆岀帺瀹剁姸鎬侊紙PlayerState锛変粠鏈嶅姟鍣ㄥ悓姝ュ埌瀹㈡埛绔�嶅悗鐨勯�昏緫
 	virtual void OnRep_PlayerState() override;
 
 private:

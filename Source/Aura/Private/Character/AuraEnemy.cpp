@@ -18,7 +18,7 @@ AAuraEnemy::AAuraEnemy()
 	AttributeSet = CreateDefaultSubobject<UAuraAttributeSet>("AttributeSet");
 }
 
-//鼠标悬浮Actor上高亮
+//楂樺厜
 void AAuraEnemy::HighLightActor()
 {
 	
@@ -28,7 +28,7 @@ void AAuraEnemy::HighLightActor()
 	Weapon->SetCustomDepthStencilValue(CUSTOM_DEPTH_RED);
 }
 
-//鼠标悬浮Actor上不高亮
+//鍙栨秷楂樺厜
 void AAuraEnemy::UnHighLightActor()
 {
 	

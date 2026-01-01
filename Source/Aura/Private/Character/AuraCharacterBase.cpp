@@ -9,12 +9,12 @@ AAuraCharacterBase::AAuraCharacterBase()
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
 
-	//CreateDefaultSubobjectÓÃÓÚÔÚUObject/AActorÅÉÉúÀàµÄ¹¹Ôìº¯ÊıÖĞ´´½¨×Ó¶ÔÏó
+	//CreateDefaultSubobjectç”¨äºåœ¨UObject/AActoræ´¾ç”Ÿç±»çš„æ„é€ å‡½æ•°ä¸­åˆ›å»ºå­å¯¹è±¡
 	Weapon = CreateDefaultSubobject<USkeletalMeshComponent>("Weapon");
 
-	//½«ÎäÆ÷×é¼şÒÀ¸½µ½½ÇÉ«¹Ç÷ÀÍø¸ñÌåµÄÖ¸¶¨SocketÉÏ
+	//è®¾ç½®Socket
 	Weapon->SetupAttachment(GetMesh(), FName("WeaponHandSocket"));
-	//½ûÓÃÎäÆ÷×é¼şÅö×²¼ì²â
+	//è®¾ç½®ç¢°æ’
 	Weapon->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 
 }
